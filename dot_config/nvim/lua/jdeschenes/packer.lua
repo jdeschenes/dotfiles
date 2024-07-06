@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
   -- Color Scheme
   use('rebelot/kanagawa.nvim')
 
+  use('christoomey/vim-tmux-navigator')
+
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   use {
     'VonHeikemen/lsp-zero.nvim',
