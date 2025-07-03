@@ -24,6 +24,16 @@ return {
             })
         end, { desc = "Debug: Running Nearest Test" })
 
+        vim.keymap.set("n", "<leader>tR", function()
+            require("neotest").run.run({
+                suite = false,
+                testify = true,
+                env = {
+                    GOLDEN_WRITE = "true",
+                },
+            })
+        end, { desc = "Debug: Running Nearest Test" })
+
         vim.keymap.set("n", "<leader>tv", function()
             require("neotest").summary.toggle()
         end, { desc = "Debug: Summary Toggle" })
@@ -44,7 +54,7 @@ return {
         end, { desc = "Debug: Debug Nearest Test" })
 
         vim.keymap.set("n", "<leader>to", function()
-            require("neotest").output.open()
+            require("neotest").output_panel.open()
         end, { desc = "Debug: Open test output" })
 
         vim.keymap.set("n", "<leader>ts", function()

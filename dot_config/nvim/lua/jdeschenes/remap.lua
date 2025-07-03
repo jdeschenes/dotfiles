@@ -27,5 +27,12 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-
 vim.keymap.set("n", "<F1>", "<nop>")
+-- Prevent netrw from opnening the help menu
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        local harpoon = require("harpoon")
+        vim.keymap.set("n", "<F1>", function() harpoon:list():select(1) end, { buffer=true, noremap = true, silent = true })
+    end,
+})

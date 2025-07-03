@@ -2,10 +2,17 @@ return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8", -- Possibly change to branch master
     dependencies = {
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
-        require('telescope').setup({})
+        require('telescope').setup({
+            extensions = {
+                fzf = {}
+            }
+        })
+
+        require('telescope').load_extension('fzf')
 
         local builtin = require('telescope.builtin')
 
